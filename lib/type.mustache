@@ -1,0 +1,19 @@
+{{# type_is_get }}
+<div class="code">
+	?{{# properties }}{{ key }}={{ example }}{{^ last }}&{{/ last }}{{/ properties }}
+</div>
+{{/ type_is_get }}
+{{# type_is_form }}
+<div class="code">
+	{{# properties }}{{ key }}={{ example }}{{^ last }}&{{/ last }}{{/ properties }}
+</div>
+{{/ type_is_form }}
+{{# type_is_json }}
+<div class="code">
+{<br/>
+	{{# properties }}
+	&nbsp;&nbsp;"{{ key }}" : "{{ example }}"{{^ last }},{{/ last }}<br/>
+	{{/ properties }}
+}
+</div>
+{{/ type_is_json }}

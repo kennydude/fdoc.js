@@ -1,0 +1,18 @@
+<li>
+	<code>{{ key }}</code>
+	<p>{{ description }}</p>
+	<ul>
+		{{# required }}
+		<li>Required: {{ required }}</li>
+		{{/ required }}
+		{{# type }}
+		<li>Type: {{ type }}</li>
+		{{/ type }}
+		{{# example }}
+		<li>Example: <code>{{ example }}</code></li>
+		{{/ example }}
+		{{# model }}
+		<li>Model: <a href="#model-{{ model }}">{{ model }}</a></li>
+		{{/ model }}
+	</ul>
+</li>

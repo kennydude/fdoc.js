@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>API documentation for {{ service.name }}</title>
+		<link rel="stylesheet" href="foundation.min.css" />
+		<style type="text/css">
+			.code{
+				font-family: Monaco, monospace;
+				margin-bottom: 5px;
+				padding: 3px;
+				background: #EEE;
+				border: 1px solid #CCC;
+			}
+			.credits{
+				font-style: italic;
+				padding: 10px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body><div class="row"><div class="eight columns centered">
+
+		<div class="row header">
+			<h2>API Documentation for {{ service.name }}</h2>
+			<p>
+				{{ service.description }}
+			</p>
+		</div>
+		<div class="row toc">
+			<h4>Index of Endpoints</h4>
+			<ul>
+				{{# service.endpoints }}
+					<li><a href="#{{ name }}">{{ name }}</a></li>
+				{{/ service.endpoints }}
+			</ul>
+			<h4>Endpoint documentation</h4>
+		</div>
+		{{# service.endpoints }}
+		<div class="row endpoint">
+			<a id="{{ name }}"></a>
+			<div class="alert-box">
+				{{ name }}
+			</div>
+			<p>{{ description }}</p>
+			<div class="row">
+				<div class="six columns">
+					<h5>
+						Request
+						{{# requestParameters.type }}
+							({{ requestParameters.type }})
+						{{/ requestParameters.type }}
+					</h5>
+					{{# requestParameters }}
+						{{> type.mustache }}
+					{{/ requestParameters }}
+					<ul>
+						{{# requestParameters.properties }}
+							{{> property.mustache }}
+						{{/ requestParameters.properties }}
+					</ul>
+				</div>
+				<div class="six columns">
+					<h5>
+						Response
+						{{# responseParameters.type }}
+							({{ responseParameters.type }})
+						{{/ responseParameters.type }}
+					</h5>
+					{{# responseParameters }}
+						{{> type.mustache }}
+					{{/ responseParameters }}
+					<ul>
+						{{# responseParameters.properties }}
+							{{> property.mustache }}
+						{{/ responseParameters.properties }}
+					</ul>
+					<h6>Response Codes</h6>
+					<ul>
+						{{# responseCodes }}
+						<li>
+							<span class="label
+								{{# successful_no }}alert{{/ successful_no }}
+								{{# successful_yes }}success{{/ successful_yes }}">{{ status }}</span>
+							{{ description }}
+						</li>
+						{{/ responseCodes }}
+					</ul>
+				</div>
+			</div>
+		</div>
+		{{/ service.endpoints }}
+		{{# service.models }}
+		<div class="row model">
+			<a id="model-{{ key }}"></a>
+			<div class="alert-box secondary">
+				Model - {{ key }}
+			</div>
+			<p>
+				{{ description }}
+			</p>
+			<h5>Properties</h5>
+			<ul>
+				{{# properties }}
+					{{> property.mustache }}
+				{{/ properties }}
+			</ul>
+		</div>
+		<div class="row credits">
+			Built by <a href="http://github.com/kennydude/fdoc.js">fdoc.js</a>
+		</div>
+		{{/ service.models }}
+	</div></div></body>
+</html>
