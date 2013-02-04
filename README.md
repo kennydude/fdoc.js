@@ -4,6 +4,14 @@ FDoc is written by Square https://github.com/square/fdoc
 
 I didn't want to learn Ruby, so I made it in NodeJS.
 
+## Quick Setup
+
+	npm install -g fdoc
+
+That's it! Now you can use it:
+	
+	fdoc_js directory_of_fdoc.service_files output_html_dir
+
 (p.s more documentation soon!)
 
 ## Extra Features
@@ -40,11 +48,11 @@ Plus, you may have noticed the `type` parameter. That formats the example. You c
 * form (g=4&ee=f)
 * (want more, add it to `lib/type.mustache`)
 
-# Credits
+## Credits
 
 * Square for making fdoc
 * Foundation CSS by ZURB which made the HTML generated look nice
 
-# License
+## License
 
 GPL v3 - http://www.tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3)
