@@ -2,7 +2,7 @@
 	"name" : "fdoc",
 	"description" : "FDoc for NodeJS. Fdoc is made by Square",
 	"author" : "@kennydude - Joe Simpson",
-	"version" : "0.0.1",
+	"version" : "0.0.2",
 	"dependencies" :  {
 		"js-yaml" : "*",
 		"glob" : "*",
